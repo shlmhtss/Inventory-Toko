@@ -43,7 +43,7 @@
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Dashboard v1</p>
+                                <p>Dashboard</p>
                             </a>
                         </li>
                     </ul>
@@ -51,7 +51,7 @@
 
                 <!-- Data Barang -->
                 <li class="nav-item">
-                    <a href="{{ route('inventory.index') }}" class="nav-link {{ request()->routeIs('inventory.index') ? 'active' : '' }}">
+                    <a href="{{ route('barang.index') }}" class="nav-link {{ request()->routeIs('barang.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-box"></i>
                         <p>Data Barang</p>
                     </a>
@@ -64,6 +64,14 @@
                         <p>Kategori</p>
                     </a>
                 </li>
+
+                <!-- Profil -->
+<li class="nav-item">
+    <a href="{{ route('profile') }}" class="nav-link {{ request()->routeIs('profile') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-user"></i>
+        <p>Profil</p>
+    </a>
+</li>
 
             </ul>
         </nav>
