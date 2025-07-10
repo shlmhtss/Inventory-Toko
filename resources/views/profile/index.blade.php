@@ -20,12 +20,12 @@
                 <i class="fas fa-edit"></i> Edit
             </a>
 
-            <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <button class="btn btn-danger mt-3">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </button>
-            </form>
+            <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+    @csrf
+    <button type="submit" class="btn btn-danger btn-sm">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+</form>
         </div>
     </div>
 </div>

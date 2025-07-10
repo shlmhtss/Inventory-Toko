@@ -33,4 +33,5 @@ class Barang extends Model
             ? asset('storage/' . $this->gambar)
             : asset('images/default.png'); // fallback default jika tidak ada gambar
     }
+    public $timestamps = true;
 }

@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\dashboardController;
 
 // 1. Tampilan Awal = welcome.blade.php
 Route::get('/', function () {
@@ -22,7 +23,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // 3. Route yang hanya bisa diakses setelah login
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', fn () => view('dashboard'))->name('dashboard');
+    Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/laporan/stok', [BarangController::class, 'laporan'])->name('laporan.stok');
 
     Route::resource('barang', BarangController::class);
     Route::get('/barang/{id}/print', [BarangController::class, 'print'])->name('barang.print');

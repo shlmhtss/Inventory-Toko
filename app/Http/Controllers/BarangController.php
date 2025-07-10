@@ -127,6 +127,20 @@ class BarangController extends Controller
     $barang = Barang::with('kategori')->findOrFail($id);
     return view('barang.print', compact('barang'));
 }
+    public function laporan(Request $request)
+{
+    $query = Barang::with('kategori');
+
+    if ($request->filled('from') && $request->filled('to')) {
+        $from = date('Y-m-d H:i:s', strtotime($request->from));
+        $to = date('Y-m-d H:i:s', strtotime($request->to));
+        $query->whereBetween('created_at', [$from, $to]);
+    }
+
+    $barang = $query->get();
+
+    return view('barang.laporan_stok', compact('barang'));
+}
 
 
 
